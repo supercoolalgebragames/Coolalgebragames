@@ -165,8 +165,8 @@
 
             const [expression, correctCategory] = gameState.deck[gameState.currentCardIndex];
             
-            // Updated: Using a span and single $ for inline MathJax instead of display mode ($$)
-            cardDisplay.innerHTML = `<span class="text-4xl font-bold text-white">Card ${gameState.currentCardIndex + 1} / ${CARD_COUNT}: &nbsp; $${expression}$</span>`;
+            // REMOVED $ delimiters, relying on MathJax's ability to render the content without explicit delimiters.
+            cardDisplay.innerHTML = `<span class="text-4xl font-bold text-white">Card ${gameState.currentCardIndex + 1} / ${CARD_COUNT}: &nbsp; ${expression}</span>`;
             
             // Rerender MathJax to process the new expression
             MathJax.Hub.Queue(["Typeset", MathJax.Hub, cardDisplay]);
@@ -275,12 +275,12 @@
                 <!-- Card 2 -->
                 <div class="bg-purple-800/60 backdrop-blur-sm border border-purple-700 rounded-lg shadow-lg p-6 hover:shadow-pink-500/20 hover:border-pink-500 transition-all">
                     <h3 class="text-2xl font-semibold text-pink-300 mb-3">Equations</h3>
-                    <p class="text-pink-200">Master the art of balancing equations to find the solution. Like <code class="text-pink-400 bg-purple-900 px-2 py-1 rounded">$2x + 5 = 15$</code>!</p>
+                    <p class="text-pink-200">Master the art of balancing equations to find the solution. Like <code class="text-pink-400 bg-purple-900 px-2 py-1 rounded">2x + 5 = 15</code>!</p>
                 </div>
                 <!-- Card 3 -->
                 <div class="bg-purple-800/60 backdrop-blur-sm border border-purple-700 rounded-lg shadow-lg p-6 hover:shadow-pink-500/20 hover:border-pink-500 transition-all">
                     <h3 class="text-2xl font-semibold text-pink-300 mb-3">Functions</h3>
-                    <p class="text-pink-200">Discover how functions like <code class="text-pink-400 bg-purple-900 px-2 py-1 rounded">$f(x) = x^2$</code> create predictable patterns.</p>
+                    <p class="text-pink-200">Discover how functions like <code class="text-pink-400 bg-purple-900 px-2 py-1 rounded">f(x) = x^2</code> create predictable patterns.</p>
                 </div>
             </div>
         </section>
@@ -295,14 +295,14 @@
                 <div class="bg-purple-800/60 backdrop-blur-sm border border-red-500 rounded-lg shadow-lg p-6">
                     <h3 class="text-2xl font-semibold text-red-400 mb-3">Puzzle 1: Find X</h3>
                     <p class="text-pink-100 text-xl font-bold mb-4">
-                        If $3x + 7 = 25$, what is the value of $x$?
+                        If <span class="text-pink-300">3x + 7 = 25</span>, what is the value of x?
                     </p>
                     <div class="relative group">
                         <button class="w-full bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hover:bg-red-700">
                             Show Solution
                         </button>
                         <div class="absolute inset-0 flex items-center justify-center bg-red-900/90 text-white text-2xl font-extrabold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            $x = 6$
+                            x = 6
                         </div>
                     </div>
                 </div>
@@ -311,14 +311,14 @@
                 <div class="bg-purple-800/60 backdrop-blur-sm border border-red-500 rounded-lg shadow-lg p-6">
                     <h3 class="text-2xl font-semibold text-red-400 mb-3">Puzzle 2: Substitute</h3>
                     <p class="text-pink-100 text-xl font-bold mb-4">
-                        If $a=5$ and $b = 2a - 3$, what is $b^2$?
+                        If <span class="text-pink-300">a = 5</span> and <span class="text-pink-300">b = 2a - 3</span>, what is b²?
                     </p>
                     <div class="relative group">
                         <button class="w-full bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hover:bg-red-700">
                             Show Solution
                         </button>
                         <div class="absolute inset-0 flex items-center justify-center bg-red-900/90 text-white text-2xl font-extrabold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            $b^2 = 49$
+                            b² = 49
                         </div>
                     </div>
                 </div>
@@ -327,14 +327,14 @@
                 <div class="bg-purple-800/60 backdrop-blur-sm border border-red-500 rounded-lg shadow-lg p-6">
                     <h3 class="text-2xl font-semibold text-red-400 mb-3">Puzzle 3: The Function</h3>
                     <p class="text-pink-100 text-xl font-bold mb-4">
-                        If $f(x) = x^2 + 2x + 1$, what is $f(5)$?
+                        If <span class="text-pink-300">f(x) = x² + 2x + 1</span>, what is f(5)?
                     </p>
                     <div class="relative group">
                         <button class="w-full bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hover:bg-red-700">
                             Show Solution
                         </button>
                         <div class="absolute inset-0 flex items-center justify-center bg-red-900/90 text-white text-2xl font-extrabold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            $f(5) = 36$
+                            f(5) = 36
                         </div>
                     </div>
                 </div>
@@ -370,7 +370,7 @@
                 
                 <!-- Card Display -->
                 <div id="card-display" class="bg-purple-700/50 border-2 border-pink-400 rounded-xl p-8 mb-8 flex justify-center items-center h-28">
-                    <!-- MathJax will render the expression here -->
+                    <!-- The expression is now plain text -->
                     <span class="text-4xl text-white font-bold">
                         Card Loading...
                     </span>
